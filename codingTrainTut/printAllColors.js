@@ -12,6 +12,9 @@ function draw()
     background(255);
     circle(200, 200, 200);
 
+    fill(indexR, indexG, indexB);
+    console.log(indexR, indexG, indexB);
+
     if (indexB >= 255)
     {
         indexB = 0;
@@ -36,7 +39,4 @@ function draw()
     {
         indexB++;
     }
-
-    fill(indexR, indexG, indexB);
-    console.log(indexR, indexG, indexB);
 }
