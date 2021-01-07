@@ -1,3 +1,4 @@
-*.js*
+.jsbeautify*
+jsconfig.json
 .dist
 libraries
