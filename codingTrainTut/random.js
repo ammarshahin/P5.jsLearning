@@ -1,7 +1,16 @@
+/**
+ * @file printAllColors.js
+ * @author Ammar Shahin (Ammar0Shahin@gmail.com)
+ * @brief 
+ * @version 0.1
+ * @date 2021-01-08
+ * 
+ * @copyright Copyright (c) 2021
+ * 
+ */
+
 const width = 600;
 const hight = 600;
-
-var keyFlag = 1;
 
 var car = {
     colorRED: 0,
@@ -19,15 +28,6 @@ function setup()
 
 function draw()
 {
-    if (mouseIsPressed && keyFlag)
-    {
-        keyFlag = 0;
-        car.speed = random(1, 6);
-        car.size = random(10, 80);
-        car.position = random(0, hight / 2);
-        console.log(car.speed, car.size, car.position);
-    }
-
     background(255);
     circle(width / 2, hight - car.position, car.size);
     fill(car.colorRED, car.colorGREEN, car.colorBLUE);
@@ -38,7 +38,13 @@ function draw()
     }
 }
 
+/**
+ * The function mousePressed is an edge trigger (Event trigger) when the mouse is pressed and it executes only once when it pressed. 
+ */
 function mouseReleased()
 {
-    keyFlag = 1;
+    car.speed = round(random(1, 6));
+    car.size = round(random(10, 80));
+    car.position = round(random(0, hight / 2));
+    console.log(car.speed, car.size, car.position);
 }
