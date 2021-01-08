@@ -1,3 +1,14 @@
+/**
+ * @file movingVariables.js
+ * @author Ammar Shahin (Ammar0Shahin@gmail.com)
+ * @brief 
+ * @version 0.1
+ * @date 2021-01-08
+ * 
+ * @copyright Copyright (c) 2021
+ * 
+ */
+
 const width = 600;
 const hight = 600;
 
