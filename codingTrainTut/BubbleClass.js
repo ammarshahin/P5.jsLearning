@@ -11,8 +11,8 @@ class Bubble
 
     move()
     {
-        this.x += this.speed[0];
-        this.y += this.speed[1];
+        this.x += random(this.speed[0], -this.speed[0]);
+        this.y += random(this.speed[1], -this.speed[1]);
         if (this.x > width)
         {
             this.x = 0;
@@ -27,8 +27,7 @@ class Bubble
     show()
     {
         noStroke();
-        fill(this.color);
-        circle(this.x, this.y, this.size);
+        image(bubble, this.x, this.y, this.size, this.size)
     }
 
     x_position_set(x)
@@ -38,7 +37,7 @@ class Bubble
 
     x_position_get()
     {
-        return x;
+        return this.x;
     }
 
     y_position_set(y)
@@ -48,7 +47,7 @@ class Bubble
 
     y_position_get()
     {
-        return y;
+        return this.y;
     }
 
     speed_set(speed)
@@ -79,5 +78,11 @@ class Bubble
     color_get()
     {
         return this.color;
+    }
+
+    crash(other)
+    {
+        let d = dist(this.x, this.y, other.x_position_get(), other.y_position_get());
+        return (d < (this.size + other.size_get()));
     }
 }
