@@ -21,7 +21,7 @@ function setup()
     createCanvas(width, hight);
     for (let index = 0; index < arraySize; index++)
     {
-        array[index] = new Bubble(0, random(600), random(10, 50), [random(5, 10), 0], random(50, 255));
+        array[index] = new Bubble(random(width), random(hight), random(10, 50), [random(5, 10), 0], random(50, 255));
     }
 }
 
