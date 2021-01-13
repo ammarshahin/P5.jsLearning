@@ -1,8 +1,0 @@
-.jsbeautify*
-jsconfig.json
-.dist
-libraries
-node_modules
-package.json
-.eslintrc.json
-package-lock.json
