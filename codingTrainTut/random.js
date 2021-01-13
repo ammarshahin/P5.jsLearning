@@ -1,5 +1,5 @@
 /**
- * @file printAllColors.js
+ * @file random.js
  * @author Ammar Shahin (Ammar0Shahin@gmail.com)
  * @brief 
  * @version 0.1

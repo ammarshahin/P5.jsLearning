@@ -12,11 +12,10 @@
 const width = 600;
 const hight = 600;
 
-let bubble;
 let array = [];
 let arraySize = 40;
-
 let count = 0;
+
 
 function setup() {
   createCanvas(width, hight);
@@ -33,6 +32,7 @@ function setup() {
   noOverLap();
   console.log(count);
 }
+
 
 function draw() {
   background(255);
@@ -52,6 +52,7 @@ function draw() {
   }
 }
 
+
 function mousePressed() {
   for (let index = 0; index < arraySize; index++) {
     if (array[index].contains(mouseX, mouseY)) {
@@ -68,6 +69,7 @@ function mousePressed() {
     }
   }
 }
+
 
 function noOverLap() {
   /* no overlap between circles */

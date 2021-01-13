@@ -1,5 +1,5 @@
-const width = 600;
-const hight = 600;
+const width = 400;
+const hight = 400;
 
 var keyFlag = 1;
 
