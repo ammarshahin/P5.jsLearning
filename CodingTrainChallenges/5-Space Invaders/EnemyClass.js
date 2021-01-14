@@ -12,8 +12,8 @@ class Enemy
     {
         noStroke();
         fill(150);
-        rectMode(CENTER);
-        rect(this.x, this.y + (this.size / 2), this.size, this.size);
+        imageMode(CENTER)
+        image(enemyShip, this.x, this.y, this.size, 2 * this.size);
     }
 
     move()

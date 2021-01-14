@@ -1,6 +1,6 @@
 class SpaceShip
 {
-    constructor(x = width / 2, y = height - 30, size = 60, speed = 5)
+    constructor(x = width / 2, y = height - 60, size = 60, speed = 5)
     {
         this.x = x;
         this.y = y;
@@ -13,7 +13,8 @@ class SpaceShip
     {
         noStroke();
         fill(150);
-        ellipse(this.x, this.y, this.size, 2 * this.size);
+        imageMode(CENTER)
+        image(spaceVehicle, this.x, this.y, this.size, 2 * this.size);
     }
 
     move()
@@ -28,13 +29,6 @@ class SpaceShip
     setDir(dir)
     {
         this.dir = dir;
-    }
-
-    shoot()
-    {
-        noStroke();
-        fill(200);
-        rect(this.x, this.y, 5, 5);
     }
 
     xPos_get()

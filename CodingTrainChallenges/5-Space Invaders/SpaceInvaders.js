@@ -1,23 +1,35 @@
-const width = 600;
+const width = 1200;
 const height = 600;
 
 let spaceShip;
 let enemies = [];
+let enemySize = 40;
 let bullets = [];
+let backgroundImg, spaceVehicle, enemyShip;
+let paragraph, score;
+
+function preload()
+{
+    backgroundImg = loadImage("images/background.png");
+    spaceVehicle = loadImage("images/spaceShip.png");
+    enemyShip = loadImage("images/enemy.png");
+}
 
 function setup()
 {
+    score = 0;
     createCanvas(width, height);
+    paragraph = createP("Score: " + score);
     spaceShip = new SpaceShip();
-    for (let index = 0; index < (width / 20); index++)
+    for (let index = 0; index < (width / (enemySize * 2)); index++)
     {
-        enemies[index] = new Enemy(index * 30, 0, 0, 20);
+        enemies[index] = new Enemy((index * enemySize * 2) + (enemySize), 0, 0, enemySize);
     }
 }
 
 function draw()
 {
-    background(0);
+    image(backgroundImg, 0, 0, 2400, 1200);
 
     for (let j = enemies.length - 1; j >= 0; j--)
     {
@@ -41,6 +53,18 @@ function draw()
             {
                 bullets.splice(i, 1);
                 enemies.splice(j, 1);
+                score++;
+                paragraph.html("Score: " + score);
+                if (enemies.length == 0)
+                {
+                    paragraph.html("You Win!!!!, Press r to play again >> Score: " + score);
+                    for (let k = bullets.length - 1; k >= 0; k--)
+                    {
+                        bullets.splice(k, 1);
+                    }
+                    image(backgroundImg, 0, 0, 2400, 1200);
+                    noLoop();
+                }
                 break;
             }
         }
@@ -52,10 +76,6 @@ function draw()
 
 function keyPressed()
 {
-    if (key === ' ')
-    {
-        bullets.push(new Bullet(spaceShip.xPos_get(), spaceShip.yPos_get()));
-    }
 
     if (keyCode == RIGHT_ARROW)
     {
@@ -65,9 +85,25 @@ function keyPressed()
     {
         spaceShip.setDir(-1);
     }
+
+    if (key == ' ')
+    {
+        bullets.push(new Bullet(spaceShip.xPos_get(), spaceShip.yPos_get()));
+    }
+    else if ((key == 'r') && (score == (width / (enemySize * 2))))
+    {
+        loop();
+        score = 0;
+        paragraph.html("Score: " + score);
+        for (let index = 0; index < (width / (enemySize * 2)); index++)
+        {
+            enemies[index] = new Enemy((index * enemySize * 2) + (enemySize), 0, 0, enemySize);
+        }
+    }
 }
 
 function keyReleased()
 {
-    spaceShip.setDir(0);
+    if ((keyCode == RIGHT_ARROW) || (keyCode == LEFT_ARROW))
+        spaceShip.setDir(0);
 }
