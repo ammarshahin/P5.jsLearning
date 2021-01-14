@@ -12,11 +12,27 @@ class Enemy
     {
         noStroke();
         fill(150);
-        rect(this.x, this.y, this.size, this.size);
+        rectMode(CENTER);
+        rect(this.x, this.y + (this.size / 2), this.size, this.size);
     }
 
     move()
     {
         this.x += random(-1 * this.speed, this.speed);
+    }
+
+    xPos_get()
+    {
+        return this.x;
+    }
+
+    yPos_get()
+    {
+        return this.y;
+    }
+
+    size_get()
+    {
+        return this.size;
     }
 }

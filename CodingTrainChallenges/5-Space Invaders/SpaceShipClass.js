@@ -6,6 +6,7 @@ class SpaceShip
         this.y = y;
         this.size = size;
         this.speed = speed;
+        this.dir = 0;
     }
 
     show()
@@ -15,21 +16,18 @@ class SpaceShip
         ellipse(this.x, this.y, this.size, 2 * this.size);
     }
 
-    move(dir)
+    move()
     {
-        if ((this.x >= 0) && (this.x <= width))
+        this.x += (this.dir * this.speed);
+        if ((this.x <= 0) || (this.x >= width))
         {
-            this.x += (dir * this.speed);
+            this.dir = 0;
         }
-        else if (this.x <= 0)
-        {
-            this.x = 0;
-        }
-        else if (this.x >= width)
-        {
-            this.x = width;
-        }
+    }
 
+    setDir(dir)
+    {
+        this.dir = dir;
     }
 
     shoot()
@@ -48,5 +46,4 @@ class SpaceShip
     {
         return this.y;
     }
-
 }

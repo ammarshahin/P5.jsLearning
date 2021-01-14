@@ -3,6 +3,7 @@ const height = 600;
 
 let spaceShip;
 let enemies = [];
+let bullets = [];
 
 function setup()
 {
@@ -17,27 +18,56 @@ function setup()
 function draw()
 {
     background(0);
-    spaceShip.show();
-    for (let index = 0; index < enemies.length; index++)
+
+    for (let j = enemies.length - 1; j >= 0; j--)
     {
-        enemies[index].show();
-        enemies[index].move();
+        enemies[j].show();
+        enemies[j].move();
     }
-    keyIsHeldPressed();
+
+    for (let i = bullets.length - 1; i >= 0; i--)
+    {
+        bullets[i].show();
+        bullets[i].update();
+        if (bullets[i].missed())
+        {
+            bullets.splice(i, 1);
+            break;
+        }
+
+        for (let j = enemies.length - 1; j >= 0; j--)
+        {
+            if (bullets[i].hits(enemies[j]))
+            {
+                bullets.splice(i, 1);
+                enemies.splice(j, 1);
+                break;
+            }
+        }
+    }
+
+    spaceShip.show();
+    spaceShip.move();
 }
 
-function keyIsHeldPressed()
+function keyPressed()
 {
-    if (keyIsPressed && (keyCode.LEFT_ARROW == true) && (keyCode.RIGHT_ARROW == true))
+    if (key === ' ')
     {
-        // Do nothing
+        bullets.push(new Bullet(spaceShip.xPos_get(), spaceShip.yPos_get()));
     }
-    if (keyIsPressed && (keyCode == RIGHT_ARROW))
+
+    if (keyCode == RIGHT_ARROW)
     {
-        spaceShip.move(1);
+        spaceShip.setDir(1);
     }
-    else if (keyIsPressed && (keyCode == LEFT_ARROW))
+    else if (keyCode == LEFT_ARROW)
     {
-        spaceShip.move(-1);
+        spaceShip.setDir(-1);
     }
+}
+
+function keyReleased()
+{
+    spaceShip.setDir(0);
 }
