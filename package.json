@@ -3,20 +3,24 @@
     "version": "1.0.0",
     "description": "asfsdf",
     "main": "sketch.js",
-    "scripts": {
+    "scripts":
+    {
         "test": "echo \"Error: no test specified\" && exit 1"
     },
-    "repository": {
+    "repository":
+    {
         "type": "git",
         "url": "git+https://github.com/ammarshahin/P5.jsLearning.git"
     },
     "author": "",
     "license": "ISC",
-    "bugs": {
+    "bugs":
+    {
         "url": "https://github.com/ammarshahin/P5.jsLearning/issues"
     },
     "homepage": "https://github.com/ammarshahin/P5.jsLearning#readme",
-    "devDependencies": {
+    "devDependencies":
+    {
         "@typescript-eslint/eslint-plugin": "^4.12.0",
         "@typescript-eslint/parser": "^4.12.0",
         "eslint": "^7.17.0",

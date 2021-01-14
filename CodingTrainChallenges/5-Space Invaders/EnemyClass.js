@@ -1,5 +1,6 @@
-class Enemy{
-    constructor(x ,y, speed, size)
+class Enemy
+{
+    constructor(x, y, speed, size)
     {
         this.x = x;
         this.y = y;
@@ -16,6 +17,6 @@ class Enemy{
 
     move()
     {
-        this.x += random(-1 * this.speed, this.speed); 
+        this.x += random(-1 * this.speed, this.speed);
     }
 }

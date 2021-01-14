@@ -8,8 +8,9 @@ function setup()
 {
     createCanvas(width, height);
     spaceShip = new SpaceShip();
-    for (let index = 0; index < (width/20); index++) {
-        enemies[index] = new Enemy(index * 30, 0, 0 , 20);
+    for (let index = 0; index < (width / 20); index++)
+    {
+        enemies[index] = new Enemy(index * 30, 0, 0, 20);
     }
 }
 
@@ -17,7 +18,8 @@ function draw()
 {
     background(0);
     spaceShip.show();
-    for (let index = 0; index < enemies.length; index++) {
+    for (let index = 0; index < enemies.length; index++)
+    {
         enemies[index].show();
         enemies[index].move();
     }
@@ -26,15 +28,15 @@ function draw()
 
 function keyIsHeldPressed()
 {
-    if(keyIsPressed && (keyCode.LEFT_ARROW == true) && (keyCode.RIGHT_ARROW == true))
+    if (keyIsPressed && (keyCode.LEFT_ARROW == true) && (keyCode.RIGHT_ARROW == true))
     {
         // Do nothing
     }
-    if(keyIsPressed && (keyCode == RIGHT_ARROW))
+    if (keyIsPressed && (keyCode == RIGHT_ARROW))
     {
         spaceShip.move(1);
     }
-    else if(keyIsPressed && (keyCode == LEFT_ARROW))
+    else if (keyIsPressed && (keyCode == LEFT_ARROW))
     {
         spaceShip.move(-1);
     }

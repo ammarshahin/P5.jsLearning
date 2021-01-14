@@ -18,10 +18,11 @@ class Bubble
             this.x = 0;
         }
 
-    if (this.y > hight) {
-      this.y = 0;
+        if (this.y > hight)
+        {
+            this.y = 0;
+        }
     }
-  }
 
     show()
     {
@@ -29,59 +30,68 @@ class Bubble
         image(bubble, this.x, this.y, this.size, this.size)
     }
 
-
-  contains(px, py) {
-    let d = dist(px, py, this.x, this.y);
-    if (d < 0.5 * this.size) {
-      return true;
-    } else {
-      return false;
+    contains(px, py)
+    {
+        let d = dist(px, py, this.x, this.y);
+        if (d < 0.5 * this.size)
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
     }
-  }
 
     x_position_get()
     {
         return this.x;
     }
 
-  x_position_set(x) {
-    this.x = x;
-  }
+    x_position_set(x)
+    {
+        this.x = x;
+    }
 
-    
-  y_position_get()
+    y_position_get()
     {
         return this.y;
     }
 
-  
-    y_position_set(y) {
-    this.y = y;
-  }
+    y_position_set(y)
+    {
+        this.y = y;
+    }
 
-  y_position_get() {
-    return this.y;
-  }
+    y_position_get()
+    {
+        return this.y;
+    }
 
-  speed_set(speed) {
-    this.speed = speed;
-  }
+    speed_set(speed)
+    {
+        this.speed = speed;
+    }
 
-  speed_get() {
-    return this.speed;
-  }
+    speed_get()
+    {
+        return this.speed;
+    }
 
-  size_set(size) {
-    this.size = size;
-  }
+    size_set(size)
+    {
+        this.size = size;
+    }
 
-  size_get() {
-    return this.size;
-  }
+    size_get()
+    {
+        return this.size;
+    }
 
-  color_set(color) {
-    this.color = color;
-  }
+    color_set(color)
+    {
+        this.color = color;
+    }
 
     color_get()
     {
